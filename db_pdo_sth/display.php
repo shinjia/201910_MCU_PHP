@@ -58,6 +58,8 @@ $html = <<< HEREDOC
 {$data}
 HEREDOC;
  
+$subtitle = '詳細內容';
+
 include 'pagemake.php';
-pagemake($html, '');
+pagemake($html, '', $subtitle);
 ?>

@@ -17,6 +17,8 @@ $html = <<< HEREDOC
 </form>
 HEREDOC;
 
+$subtitle = '新增資料';
+
 include 'pagemake.php';
-pagemake($html, '');
+pagemake($html, '', $subtitle);
 ?>

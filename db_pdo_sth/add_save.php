@@ -17,6 +17,7 @@ $pdo = db_open();
 // 寫出 SQL 語法
 $sqlstr = "INSERT INTO person(usercode, username, address, birthday, height, weight, remark) VALUES (:usercode, :username, :address, :birthday, :height, :weight, :remark)";
 
+
 $sth = $pdo->prepare($sqlstr);
 $sth->bindParam(':usercode', $usercode, PDO::PARAM_STR);
 $sth->bindParam(':username', $username, PDO::PARAM_STR);
@@ -40,6 +41,7 @@ $sth->bindValue(6, $weight  , PDO::PARAM_INT);
 $sth->bindValue(7, $remark  , PDO::PARAM_STR);
 */
 
+
 // 執行SQL及處理結果
 if($sth->execute())
 {
@@ -48,8 +50,8 @@ if($sth->execute())
    header('Location: ' . $url_display);
 }
 else
-{
-   header('Location: error.php');
+{ 
+   //header('Location: error.php');
    echo print_r($pdo->errorInfo()) . '<br />' . $sqlstr; exit;  // 此列供開發時期偵錯用
 }
 ?>

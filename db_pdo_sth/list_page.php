@@ -89,7 +89,7 @@ $ihc_navigator  = <<< HEREDOC
 <table border="0" align="center">
  <tr>
   <td>頁數：{$page} / {$total_page} &nbsp;&nbsp;&nbsp;</td>
-  <td>
+  <td>{$lnk_pagelist}
   <a href="{$lnk_pagehead}">第一頁</a> 
   <a href="{$lnk_pageprev}">上一頁</a> 
   <a href="{$lnk_pagenext}">下一頁</a> 
@@ -122,6 +122,8 @@ $html = <<< HEREDOC
 </table>
 HEREDOC;
 
+$subtitle = '分頁顯示';
+
 include 'pagemake.php';
-pagemake($html, '');
+pagemake($html, '', $subtitle);
 ?>

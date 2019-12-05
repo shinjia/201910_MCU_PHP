@@ -1,78 +1,64 @@
 <?php
 
-function pagemake($content='', $head='')
+function pagemake($content='', $head='', $subtitle='Hello')
 {  
   $html = <<< HEREDOC
-<!DOCTYPE html>
-<html>
+   <!--
+Design by Bryant Smith
+http://www.bryantsmith.com
+http://www.aszx.net
+email: template [-at-] bryantsmith [-dot-] com
+Released under Creative Commons Attribution 2.5 Generic.  In other words, do with it what you please; but please leave the link if you'd be so kind :)
+
+Name       : Green Creative
+Description: One column, with top naviagation
+Version    : 1.0
+Released   : 20081222
+-->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>基本資料庫系統</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style type="text/css">
-* {
-  margin: 0px;
-}
-
-div.container {
-  padding: 10px;
-  margin: 0 auto;
-  width: 760px;
-}
-
-div#header {
-  padding: 10px;
-  background-color: #AAEEAA; 
-}
-
-div#nav {
-  padding: 10px;
-  background-color: #FFAA33; 
-}
-
-
-div#main {
-  padding: 10px;
-  background-color: #EEEEAA; 
-}
-
-div#footer {
-  padding: 10px;
-  background-color: #AAAA33; 
-  text-align: center;
-}
-
-</style>
-
-{$head}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>Green Creative by Bryant Smith</title>
 </head>
+
 <body>
-
-<div class="container">
-   <div id="header">
-      <h1>後台資料庫管理</h1>
-   </div>
-  
-   <div id="nav">     
-      | <a href="index.php" target="_top">首頁</a>
-      | <a href="page.php?code=note2">說明</a> 
-      | <a href="list_page.php">資料列表</a> 
-      |
-   </div>
-  
-   <div id="main">
-    {$content}
-   </div>
-
-   <div id="footer">
-     <p>版權聲明</p>
-   </div>
-
+    <div id="page">
+		
+        <div id="header">
+        	<div id="headerTitle">Green Creative</div>
+            <div id="headerSubText">Inspired by Creative Commons, licensed under Creative Commons.</div>
+            
+        </div>
+        <div id="bar">
+        	<a href="index.php">home</a>
+            <a href="list_page.php">分頁列出</a>
+            <a href="add.php">新增</a>
+            <a href="page.php?code=note2">最新消息note2</a>
+            <a href="#">products</a>
+            <a href="#">faq</a>
+            <a href="#">contact</a>
+      </div>
+        <div class="contentTitle"><h1>{$subtitle}</h1></div>
+        <div class="contentText">
+         {$content}
+        </div>
+        <div class="contentTitle"><h1>Another Title Goes Here!</h1></div>
+        <div class="contentText">
+          <p>This particular template goes not have a naviagation panel; it was intended for simple sites.   I am also making a version of this template with navigation, check out <a href="http://www.bryantsmith.com">BryantSmith.com</a> to get it.</p>
+          <p>&nbsp;</p>
+          <p><a href="index.html">(read more)</a></p>
+        </div>
+        <div class="contentTitle"><h1>Yet Another?</h1></div>
+        <div class="contentText">Each title is an H1 tag, so choose them carefully :)</div>  
 </div>
-
+        <div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
 </body>
-</html>  
+</html>
+
 HEREDOC;
 
 echo $html;
